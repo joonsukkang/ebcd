@@ -12,5 +12,4 @@ URL: https://github.com/joonsukkang/ebcd
 BugReports: https://github.com/joonsukkang/ebcd/issues
 Imports: 
     ebnm,
-    flashier,
     irlba

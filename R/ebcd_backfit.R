@@ -28,7 +28,7 @@ ebcd_backfit <- function(ebcd,
       ebcd$EL[, k] <- e$posterior$mean
       ebcd$V[, k] <- e$posterior$sd^2
       ebcd$KL[k] <- e$log_likelihood +
-        -flashier:::normal.means.loglik(x, s, ebcd$EL[, k], ebcd$EL[, k]^2 + ebcd$V[, k])
+        - normal_means_loglik(x, s, ebcd$EL[, k], ebcd$EL[, k]^2 + ebcd$V[, k])
     }
 
     # Rotation step
