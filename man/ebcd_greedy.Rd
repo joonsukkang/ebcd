@@ -5,7 +5,7 @@
 \title{Greedily add factors to an ebcd object}
 \usage{
 ebcd_greedy(
-  ebcd,
+  ebcd_obj,
   Kmax = 1,
   ebnm_fn = ebnm::ebnm_point_laplace,
   tol = 1e-06,
@@ -13,7 +13,7 @@ ebcd_greedy(
 )
 }
 \arguments{
-\item{ebcd}{An ebcd object.}
+\item{ebcd_obj}{An ebcd object.}
 
 \item{Kmax}{The maximum number of factors to be added.}
 

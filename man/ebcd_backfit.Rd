@@ -2,12 +2,12 @@
 % Please edit documentation in R/ebcd_backfit.R
 \name{ebcd_backfit}
 \alias{ebcd_backfit}
-\title{Title}
+\title{Backfit an ebcd object}
 \usage{
-ebcd_backfit(ebcd, tol = 1e-06, maxiter = 5000)
+ebcd_backfit(ebcd_obj, tol = 1e-06, maxiter = 5000)
 }
 \arguments{
-\item{ebcd}{An ebcd object.}
+\item{ebcd_obj}{An ebcd object.}
 
 \item{tol}{The convergence tolerance parameter.}
 
@@ -17,5 +17,5 @@ ebcd_backfit(ebcd, tol = 1e-06, maxiter = 5000)
 An ebcd object.
 }
 \description{
-Title
+Backfit an ebcd object
 }
