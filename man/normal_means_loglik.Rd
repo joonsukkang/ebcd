@@ -6,6 +6,15 @@
 \usage{
 normal_means_loglik(x, s, Et, Et2)
 }
+\arguments{
+\item{x}{A vector of observations in an EBNM problem}
+
+\item{s}{A vector of standard errors in an EBNM problem}
+
+\item{Et}{A vector of posterior means}
+
+\item{Et2}{A vector of posterior mean of second moments}
+}
 \description{
 Compute the Normal means log likelihood
 }
