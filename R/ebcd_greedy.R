@@ -1,6 +1,6 @@
 #' Greedily add factors to an ebcd object
 #'
-#' @param ebcd An ebcd object.
+#' @param ebcd_obj An ebcd object.
 #' @param Kmax The maximum number of factors to be added.
 #' @param ebnm_fn The ebnm function to be used.
 #' @param tol  The convergence tolerance parameter.
@@ -9,19 +9,19 @@
 #' @return An ebcd object.
 #' @export
 #'
-ebcd_greedy <- function(ebcd,
+ebcd_greedy <- function(ebcd_obj,
                         Kmax = 1,
                         ebnm_fn = ebnm::ebnm_point_laplace,
                         tol = 1e-6,
                         maxiter = 500) {
   for (K in 1:Kmax) {
-    R <- ebcd$A - tcrossprod(ebcd$Z, ebcd$EL)
+    R <- ebcd_obj$A - tcrossprod(ebcd_obj$Z, ebcd_obj$EL)
     svd1 <- irlba::irlba(R, nv = 1, nu = 0)
     dv <- svd1$d * svd1$v
 
-    l <- dv / sqrt(ebcd$nrowA)
+    l <- dv / sqrt(ebcd_obj$nrowA)
     Rl <- R %*% l
-    z <- sqrt(ebcd$nrowA) * Rl / sqrt(sum(Rl^2))
+    z <- sqrt(ebcd_obj$nrowA) * Rl / sqrt(sum(Rl^2))
 
     ef1 <- list(
       A = R,
@@ -29,19 +29,19 @@ ebcd_greedy <- function(ebcd,
       EL = l,
       maxiter = maxiter,
       ebnm_fn = ebnm_fn,
-      N = ebcd$N,
-      nrowA = ebcd$nrowA,
-      tau = ebcd$tau,
-      tol = ebcd$tol
+      N = ebcd_obj$N,
+      nrowA = ebcd_obj$nrowA,
+      tau = ebcd_obj$tau,
+      tol = ebcd_obj$tol
     )
     ef1 <- ebcd_backfit(ef1)
 
-    ebcd$EL <- cbind(ebcd$EL, ef1$EL)
-    ebcd$Z <- sqrt(ebcd$nrowA) * PolarU(ebcd$A %*% ebcd$EL)
-    ebcd$tau <- ef1$tau
+    ebcd_obj$EL <- cbind(ebcd_obj$EL, ef1$EL)
+    ebcd_obj$Z <- sqrt(ebcd_obj$nrowA) * PolarU(ebcd_obj$A %*% ebcd_obj$EL)
+    ebcd_obj$tau <- ef1$tau
   }
 
-  ebcd$ebnm_fn <- ebnm_fn
+  ebcd_obj$ebnm_fn <- ebnm_fn
 
-  return(ebcd)
+  return(ebcd_obj)
 }

@@ -46,11 +46,11 @@ ebcd_init <- function(X = NULL,
   EL <- matrix(0, nrow = ncol(A), ncol = 0)
 
 
-  ebcd <- list(
+  ebcd_obj <- list(
     A = A, N = N, nrowA = nrowA,
     tau = tau, Z = Z, EL = EL
   )
 
 
-  return(ebcd)
+  return(ebcd_obj)
 }
