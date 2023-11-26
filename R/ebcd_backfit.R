@@ -32,7 +32,7 @@ ebcd_backfit <- function(ebcd,
     }
 
     # Rotation step
-    ebcd$Z <- sqrt(ebcd$nrowA) * polar(ebcd$A %*% ebcd$EL)
+    ebcd$Z <- sqrt(ebcd$nrowA) * PolarU(ebcd$A %*% ebcd$EL)
 
     # Precision step
     ebcd$tau <- prod(dim(ebcd$A)) / (sum((ebcd$A - ebcd$Z %*% t(ebcd$EL))^2) + ebcd$nrowA * sum(ebcd$V))

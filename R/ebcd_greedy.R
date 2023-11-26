@@ -37,7 +37,7 @@ ebcd_greedy <- function(ebcd,
     ef1 <- ebcd_backfit(ef1)
 
     ebcd$EL <- cbind(ebcd$EL, ef1$EL)
-    ebcd$Z <- sqrt(ebcd$nrowA) * polar(ebcd$A %*% ebcd$EL)
+    ebcd$Z <- sqrt(ebcd$nrowA) * PolarU(ebcd$A %*% ebcd$EL)
     ebcd$tau <- ef1$tau
   }
 
