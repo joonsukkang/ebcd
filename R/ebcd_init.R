@@ -8,7 +8,6 @@
 #' @param S A P-by-P covariance/Gram matrix \eqn{=X'X/N}
 #' @param C A P-by-P compact target matrix such that \eqn{C'C=X'X}
 #' @param N The number of observations
-#' @param tol  The convergence tolerance parameter.
 #'
 #' @return An initialized ebcd object
 #' @export
@@ -16,8 +15,7 @@
 ebcd_init <- function(X = NULL,
                       S = NULL,
                       C = NULL,
-                      N = NULL,
-                      tol = 1e-6) {
+                      N = NULL) {
   if (!is.null(C)) {
     A <- C
   } else if (!is.null(S)) {
@@ -49,7 +47,7 @@ ebcd_init <- function(X = NULL,
 
 
   ebcd <- list(
-    A = A, N = N, nrowA = nrowA, tol = tol,
+    A = A, N = N, nrowA = nrowA,
     tau = tau, Z = Z, EL = EL
   )
 
