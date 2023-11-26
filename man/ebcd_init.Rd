@@ -7,21 +7,21 @@
 ebcd_init(X = NULL, S = NULL, C = NULL, N = NULL, tol = 1e-06)
 }
 \arguments{
-\item{X}{N-by-P data matrix with N observations and P variables}
+\item{X}{A N-by-P data matrix with N observations and P variables}
 
-\item{S}{P-by-P covariance/Gram matrix \eqn{=X'X/N}}
+\item{S}{A P-by-P covariance/Gram matrix \eqn{=X'X/N}}
 
-\item{C}{P-by-P compact target matrix such that \eqn{C'C=X'X}}
+\item{C}{A P-by-P compact target matrix such that \eqn{C'C=X'X}}
 
-\item{N}{number of observations}
+\item{N}{The number of observations}
 
-\item{tol}{tolerance}
+\item{tol}{The convergence tolerance parameter.}
 }
 \value{
 An initialized ebcd object
 }
 \description{
 Initialize an ebcd object with no factors, taking as an input one of
-data matrix \eqn{X}, covariance matrix \eqn{S}, or compact target matrix \eqn{C}.
+a data matrix \eqn{X}, a covariance matrix \eqn{S}, or a compact target matrix \eqn{C}.
 The algorithm runs on either \eqn{X} or \eqn{C}, which is internally saved as \eqn{A}.
 }

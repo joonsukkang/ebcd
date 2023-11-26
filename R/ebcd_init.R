@@ -1,14 +1,14 @@
 #' Initialize ebcd object
 #'
 #' Initialize an ebcd object with no factors, taking as an input one of
-#' data matrix \eqn{X}, covariance matrix \eqn{S}, or compact target matrix \eqn{C}.
+#' a data matrix \eqn{X}, a covariance matrix \eqn{S}, or a compact target matrix \eqn{C}.
 #' The algorithm runs on either \eqn{X} or \eqn{C}, which is internally saved as \eqn{A}.
 #'
-#' @param X N-by-P data matrix with N observations and P variables
-#' @param S P-by-P covariance/Gram matrix \eqn{=X'X/N}
-#' @param C P-by-P compact target matrix such that \eqn{C'C=X'X}
-#' @param N number of observations
-#' @param tol tolerance
+#' @param X A N-by-P data matrix with N observations and P variables
+#' @param S A P-by-P covariance/Gram matrix \eqn{=X'X/N}
+#' @param C A P-by-P compact target matrix such that \eqn{C'C=X'X}
+#' @param N The number of observations
+#' @param tol  The convergence tolerance parameter.
 #'
 #' @return An initialized ebcd object
 #' @export
@@ -50,7 +50,7 @@ ebcd_init <- function(X = NULL,
 
   ebcd <- list(
     A = A, N = N, nrowA = nrowA, tol = tol,
-    tau = tau, EL = EL, Z = Z
+    tau = tau, Z = Z, EL = EL
   )
 
 
