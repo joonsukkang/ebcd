@@ -22,7 +22,7 @@ ebcd_backfit <- function(ebcd_obj,
     for (k in 1:Kmax) {
       ebnm_fn <- ebcd_obj$ebnm_fn
       x <- c(crossprod(ebcd_obj$A, ebcd_obj$Z[, k])) / ebcd_obj$nrowA
-      s <- sqrt(1 / (ebcd_obj$N * ebcd_obj$tau))
+      s <- rep(sqrt(1 / (ebcd_obj$N * ebcd_obj$tau)), times=length(x))
       e <- ebnm_fn(x = x, s = s)
 
       ebcd_obj$EL[, k] <- e$posterior$mean
