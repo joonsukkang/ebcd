@@ -4,7 +4,7 @@
 \alias{ebcd_init}
 \title{Initialize ebcd object}
 \usage{
-ebcd_init(X = NULL, S = NULL, C = NULL, N = NULL, tol = 1e-06)
+ebcd_init(X = NULL, S = NULL, C = NULL, N = NULL)
 }
 \arguments{
 \item{X}{A N-by-P data matrix with N observations and P variables}
@@ -14,8 +14,6 @@ ebcd_init(X = NULL, S = NULL, C = NULL, N = NULL, tol = 1e-06)
 \item{C}{A P-by-P compact target matrix such that \eqn{C'C=X'X}}
 
 \item{N}{The number of observations}
-
-\item{tol}{The convergence tolerance parameter.}
 }
 \value{
 An initialized ebcd object
