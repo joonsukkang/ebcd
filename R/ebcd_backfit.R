@@ -45,7 +45,7 @@ ebcd_backfit <- function(ebcd_obj,
       +sum(ebcd_obj$KL)
 
     ebcd_obj$vec.obj <- c(ebcd_obj$vec.obj, ebcd_obj$obj)
-    if (iter >= 10 & ebcd_obj$obj - ebcd_obj$obj.old < ebcd_obj$tol) break
+    if (iter >= 10 & ebcd_obj$obj - ebcd_obj$obj.old < tol) break
     ebcd_obj$obj.old <- ebcd_obj$obj
   }
 
