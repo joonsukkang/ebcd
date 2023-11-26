@@ -4,7 +4,6 @@
 #' (https://github.com/willwerscheid/flashier/blob/master/R/objective.R)
 
 normal_means_loglik <- function(x, s, Et, Et2) {
-
   idx <- is.finite(s) & s > 0
   x <- x[idx]
   s <- s[idx]
