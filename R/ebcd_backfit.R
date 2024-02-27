@@ -20,7 +20,7 @@ ebcd_backfit <- function(ebcd_obj,
     ebcd_obj$V <- matrix(0, nrow = nrow(ebcd_obj$EL), ncol = ncol(ebcd_obj$EL))
 
     for (k in 1:Kmax) {
-      ebnm_fn <- ebcd_obj$ebnm_fn
+      ebnm_fn <- ebcd_obj$ebnm_fn[[k]]
       x <- c(crossprod(ebcd_obj$A, ebcd_obj$Z[, k])) / ebcd_obj$nrowA
       s <- rep(sqrt(1 / (ebcd_obj$N * ebcd_obj$tau)), times=length(x))
       e <- ebnm_fn(x = x, s = s)

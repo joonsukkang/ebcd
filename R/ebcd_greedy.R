@@ -14,6 +14,11 @@ ebcd_greedy <- function(ebcd_obj,
                         ebnm_fn = ebnm::ebnm_point_laplace,
                         tol = 1e-6,
                         maxiter = 500) {
+
+  if(length(ebnm_fn)==1){
+    ebnm_fn <- rep(list(ebnm_fn), Kmax)
+  }
+
   for (K in 1:Kmax) {
     R <- ebcd_obj$A - tcrossprod(ebcd_obj$Z, ebcd_obj$EL)
     svd1 <- irlba::irlba(R, nv = 1, nu = 0)
@@ -28,7 +33,7 @@ ebcd_greedy <- function(ebcd_obj,
       Z = z,
       EL = l,
       maxiter = maxiter,
-      ebnm_fn = ebnm_fn,
+      ebnm_fn = ebnm_fn[[K]],
       N = ebcd_obj$N,
       nrowA = ebcd_obj$nrowA,
       tau = ebcd_obj$tau,
